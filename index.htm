@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang=en>
+<head>
+	<meta charset=utf-8>
+	<title>couch test</title>
+	
+	<script src="/socket.io/socket.io.js"></script>
+	<script>
+		var socket = io.connect('http://localhost:8080');
+		socket.on('update', function (data) {
+			var d = JSON.parse(data);
+			if(d.myField) {
+				var p = document.createElement('p');
+				var cont = document.createTextNode(d.myField);
+				p.appendChild(cont);
+				var inner = document.getElementById('innerBox');
+				inner.appendChild(p);
+			}
+		});
+	</script>
+	
+	<style type="text/css" media="screen">
+		* {
+			margin:0px;
+			padding:0px;
+		}
+		
+		body {
+			font-family: Verdana, sans-serif;
+		}
+	
+		#box {
+			width:500px;
+			height:400px;
+			border:1px solid #666;
+			position:relative;
+			top:50px;
+			left:50%;
+			margin:0px 0px 0px -250px;
+			overflow:scroll;
+		}
+		
+		#innerBox {
+			position:absolute;
+			bottom:0px;
+			width:100%;
+		}
+		
+		p {
+			padding:10px 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box">
+		<div id="innerBox">
+
+		</div>
+	</div>
+</body>
+</html>

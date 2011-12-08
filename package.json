@@ -1,0 +1,16 @@
+{
+  "author": "Sam Mussell <sam@streetsaheadllc.com> (http://streetsaheadllc.com)",
+  "name": "couchsocket",
+  "description": "Websocket notifications from couchdb.",
+  "version": "0.0.1",
+  "repository": {
+    "url": ""
+  },
+  "engines": {
+    "node": "~0.6.2"
+  },
+  "dependencies": {
+		"socket.io" : ">=0.8.7"
+	},
+  "devDependencies": {}
+}
